@@ -10,44 +10,44 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-function LoginForm() {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [message, setMessage] = React.useState('');
+function 登录表单() {
+  const [用户名, 设置用户名] = React.useState('');
+  const [密码, 设置密码] = React.useState('');
+  const [消息, 设置消息] = React.useState('');
 
-  const handleSubmit = async e => {
+  const 处理提交 = async e => {
     e.preventDefault();
-    const res = await fetch('/api/login', {
+    const res = await fetch('/api/登录', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ 用户名, 密码 })
     });
     const data = await res.json();
-    if (data.status === 'ok') {
-      setMessage('登录成功');
+    if (data.状态 === '成功') {
+      设置消息('登录成功');
     } else {
-      setMessage(data.message || '登录失败');
+      设置消息(data.消息 || '登录失败');
     }
   };
 
   return (
     <div>
       <h2>登录</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={处理提交}>
         <div>
-          <input placeholder="用户名" value={username} onChange={e => setUsername(e.target.value)} />
+          <input placeholder="用户名" value={用户名} onChange={e => 设置用户名(e.target.value)} />
         </div>
         <div>
-          <input type="password" placeholder="密码" value={password} onChange={e => setPassword(e.target.value)} />
+          <input type="password" placeholder="密码" value={密码} onChange={e => 设置密码(e.target.value)} />
         </div>
         <button type="submit">登录</button>
       </form>
-      {message && <p>{message}</p>}
+      {消息 && <p>{消息}</p>}
     </div>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<LoginForm />);
+ReactDOM.createRoot(document.getElementById('root')).render(<登录表单 />);
 </script>
 </body>
 </html>
