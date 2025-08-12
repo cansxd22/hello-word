@@ -10,8 +10,8 @@
     <groupId>com.example</groupId>
     <artifactId>hello-login</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hello-login</name>
-    <description>Simple login page with Java backend and React frontend</description>
+    <name>你好登录</name>
+    <description>使用 Java 后端和 React 前端的简单登录示例</description>
     <properties>
         <java.version>21</java.version>
     </properties>

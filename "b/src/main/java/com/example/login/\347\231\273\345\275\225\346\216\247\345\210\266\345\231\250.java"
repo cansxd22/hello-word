@@ -1,0 +1,21 @@
+package com.example.login;
+
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class 登录控制器 {
+
+    @PostMapping("/api/登录")
+    public Map<String, String> 登录(@RequestBody Map<String, String> 请求体) {
+        String 用户名 = 请求体.getOrDefault("用户名", "");
+        String 密码 = 请求体.getOrDefault("密码", "");
+        if ("admin".equals(用户名) && "password".equals(密码)) {
+            return Map.of("状态", "成功");
+        }
+        return Map.of("状态", "错误", "消息", "凭证无效");
+    }
+}
